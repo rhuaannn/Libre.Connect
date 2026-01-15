@@ -1,4 +1,5 @@
 using Libre.Connect.Application.UseCase.Author;
+using Libre.Connect.Application.UseCase.Author.GetAll;
 using Libre.Connect.Application.UseCase.CreateBook;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ public static class DependencyInjenction
     {
         services.AddScoped<RegisterBookUseCase>();
         services.AddScoped<RegisterAuthorUseCase>();
+        services.AddScoped<GetAuthorUseCase>();
         
         return services;
     }

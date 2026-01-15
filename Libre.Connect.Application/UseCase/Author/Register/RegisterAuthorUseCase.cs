@@ -1,6 +1,5 @@
  using Libre.Connect.Domain.Repositories.Author;
-
-
+ 
 namespace Libre.Connect.Application.UseCase.Author;
 
 public class RegisterAuthorUseCase
