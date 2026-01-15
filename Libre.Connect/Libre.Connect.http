@@ -1,0 +1,6 @@
+@Libre.Connect_HostAddress = http://localhost:5132
+
+GET {{Libre.Connect_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
