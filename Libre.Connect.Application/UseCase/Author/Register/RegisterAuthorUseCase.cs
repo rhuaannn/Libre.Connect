@@ -17,6 +17,7 @@ public class RegisterAuthorUseCase
     {
         var author = Domain.Entites.Author.Create(request.Name);
         await _writeOnlyAuthorRepository.AddAsync(author);
+        
         return new RegisterAuthorUseCaseResponse
         {
             Id = author.Id,

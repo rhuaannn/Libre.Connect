@@ -13,9 +13,14 @@ public class AuthorRepository : IReadOnlyAuthorRepository, IWriteOnlyAuthorRepos
     {
         _dbContext = dbContext;
     }
-    public async Task GetByIdAsync(Guid id)
+    public async Task<Author?> GetByIdAsync(Guid id)
     {
-        await _dbContext.FindAsync<Author>(id);
+        return await _dbContext.Authors.FindAsync(id);
+    }
+
+    public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Authors.AnyAsync(a => a.Id == id, cancellationToken);
     }
 
     public async Task<IEnumerable<Author>> GetAllAsync(CancellationToken cancellationToken = default)

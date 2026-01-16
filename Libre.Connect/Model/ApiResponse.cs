@@ -1,25 +1,33 @@
+using System.Net;
+
 namespace Libre.Connect.Model;
-
-public class ApiResponse
+public class ApiResponse<T>
 {
-    public class Response<T>
+    public bool Success { get; set; }
+    public T? Data { get; set; }
+    public List<string> ErrorMessages { get; set; } = new();
+
+    public ApiResponse(T data)
     {
-        public T? Data { get; set; }
-        public string Message { get; set; } = string.Empty;
-        public bool Success { get; set; } = true;
-
-        public Response(T data, string message = "Operação realizada com sucesso.")
-        {
-            Data = data;
-            Message = message;
-            Success = true;
-        }
-
-        public Response(string errorMessage)
-        {
-            Success = false;
-            Message = errorMessage;
-            Data = default;
-        }
+        Success = true;
+        Data = data;
+        ErrorMessages = new List<string>();
     }
-}
+    
+    public ApiResponse()
+    {
+    }
+    public static ApiResponse<T> SuccessResponse(T data)
+    {
+        return new ApiResponse<T>(data);
+    }
+    public static ApiResponse<T> ErrorResponse(List<string> errorMessages)
+    {
+        return new ApiResponse<T>
+        {
+            Success = false,
+            Data = default,
+            ErrorMessages = errorMessages
+        };
+    }
+    }

@@ -18,6 +18,7 @@ public class AuthorController : BaseController
     }
     
     [HttpPost]
+    [ProducesResponseType(typeof(ApiResponse<RegisterAuthorUseCaseResponse>), StatusCodes.Status201Created)]
     public async Task<IActionResult> Register([FromBody] RegisterAuthorUseCaseInput input, CancellationToken cancellationToken)
     {
         var id = Guid.NewGuid();
@@ -26,11 +27,11 @@ public class AuthorController : BaseController
     }
 
     [HttpGet]
-    [ProducesResponseType(typeof(ApiResponse.Response<IEnumerable<GetAuthorUseCaseResoponse>>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse<IEnumerable<GetAuthorUseCaseResoponse>>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
         var useCaseResult = await _getAuthorUseCase.Handle(cancellationToken);
-        var response = new ApiResponse.Response<IEnumerable<GetAuthorUseCaseResoponse>>(useCaseResult);
+        var response = new ApiResponse<IEnumerable<GetAuthorUseCaseResoponse>>(useCaseResult);
         
         return Ok(response);
     }

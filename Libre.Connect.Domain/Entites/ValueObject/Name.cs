@@ -1,3 +1,6 @@
+using Libre.Connect.Domain.Exception;
+using Libre.Connect.Message;
+
 namespace Libre.Connect.Domain.Entites.ValueObject;
 
 public record Name
@@ -13,17 +16,17 @@ public record Name
     {
         if (string.IsNullOrEmpty(value))
         {
-            throw new ArgumentNullException(nameof(value));
+            throw new DomainException(ResourceMessage.NameRequired);
         }
 
         if (value.Length < 3)
         {
-            throw new ArgumentOutOfRangeException(nameof(value));
+            throw new DomainException(ResourceMessage.NameMaxLength);
         }
 
         if (value.Length > 255)
         {
-            throw new ArgumentOutOfRangeException(nameof(value));
+            throw new DomainException(nameof(value));
         }
         return new Name(value);
     }

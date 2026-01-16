@@ -1,5 +1,6 @@
 using Libre.Connect.Application.DI;
 using Libre.Connect.Infra.DependencyInjection;
+using Libre.Connect.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<GlobalMiddlewareExceptions>();
 app.UseCors("AllowAll");
 app.MapControllers();
 app.Run();

@@ -1,4 +1,5 @@
 using FluentValidation;
+using Libre.Connect.Message;
 
 namespace Libre.Connect.Application.UseCase.Author;
 
@@ -6,6 +7,6 @@ public class RegisterAuthorUseCaseValidator : AbstractValidator<RegisterAuthorUs
 {
     public RegisterAuthorUseCaseValidator()
     {
-        RuleFor(x => x.Name).NotEmpty().WithMessage("Nome obrigatório.");
+        RuleFor(x => x.Name).NotEmpty().WithMessage(ResourceMessage.AuthorRequired);
     }
 }
