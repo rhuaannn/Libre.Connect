@@ -1,5 +1,6 @@
 using Libre.Connect.Application.UseCase.Author;
 using Libre.Connect.Application.UseCase.Author.GetAll;
+using Libre.Connect.Application.UseCase.Author.Remove;
 using Libre.Connect.Application.UseCase.Book.GetAll;
 using Libre.Connect.Application.UseCase.Book.Remove;
 using Libre.Connect.Application.UseCase.CreateBook;
@@ -16,6 +17,7 @@ public static class DependencyInjenction
         services.AddScoped<GetAuthorUseCase>();
         services.AddScoped<GetBookUseCase>();
         services.AddScoped<RemoveBookUseCase>();
+        services.AddScoped<RemoveAuthorUseCase>();
         
         return services;
     }

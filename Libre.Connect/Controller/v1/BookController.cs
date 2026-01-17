@@ -38,6 +38,7 @@ public class BookController : BaseController
 
     [HttpDelete]
     [ProducesResponseType(typeof(ApiResponse<RemoveBookUseCaseResponse>), StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ApiResponse<string>), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Remove(Guid id, CancellationToken cancellationToken)
     {
         var response = await _removeBookUseCase.Handle(id);

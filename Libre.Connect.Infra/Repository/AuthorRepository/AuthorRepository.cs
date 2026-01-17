@@ -41,10 +41,11 @@ public class AuthorRepository : IReadOnlyAuthorRepository, IWriteOnlyAuthorRepos
         
     }
 
-    public Task DeleteAsync(Author author, CancellationToken cancellationToken = default)
+    public async Task DeleteAsync(Guid Id, CancellationToken cancellationToken = default)
     {
+        var author = await _dbContext.Authors.FindAsync(Id);
         _dbContext.Authors.Remove(author);
-        return _dbContext.SaveChangesAsync(cancellationToken);
+        await _dbContext.SaveChangesAsync(cancellationToken);
     }
     
 }

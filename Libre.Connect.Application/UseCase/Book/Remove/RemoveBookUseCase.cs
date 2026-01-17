@@ -18,7 +18,7 @@ public class RemoveBookUseCase
         var book = await _readOnlyBookRepository.GetByIdAsync(id);
         if (book == null)
         {
-            throw new DomainException("Book not found.");
+            throw new ExceptionNotFound("Book not found.");
         }
         
         await _writeOnlyBookRepository.DeleteAsync(id);
