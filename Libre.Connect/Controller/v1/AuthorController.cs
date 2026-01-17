@@ -21,6 +21,7 @@ public class AuthorController : BaseController
     }
     
     [HttpPost]
+    [ProducesResponseType(typeof(ApiResponse<string>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse<RegisterAuthorUseCaseResponse>), StatusCodes.Status201Created)]
     public async Task<IActionResult> Register([FromBody] RegisterAuthorUseCaseInput input, CancellationToken cancellationToken)
     {
@@ -30,6 +31,7 @@ public class AuthorController : BaseController
     }
 
     [HttpGet]
+    [ProducesResponseType(typeof(ApiResponse<string>), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<GetAuthorUseCaseResoponse>>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {

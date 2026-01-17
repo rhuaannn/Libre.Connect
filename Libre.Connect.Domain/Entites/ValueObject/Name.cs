@@ -16,17 +16,17 @@ public record Name
     {
         if (string.IsNullOrEmpty(value))
         {
-            throw new DomainException(ResourceMessage.NameRequired);
+            throw new ExceptionBadRequest(ResourceMessage.NameRequired);
         }
 
-        if (value.Length < 3)
+        if (value.Length <= 3)
         {
-            throw new DomainException(ResourceMessage.NameMaxLength);
+            throw new ExceptionBadRequest(ResourceMessage.NameMaxLength);
         }
 
         if (value.Length > 255)
         {
-            throw new DomainException(nameof(value));
+            throw new ExceptionBadRequest(nameof(value));
         }
         return new Name(value);
     }

@@ -25,7 +25,7 @@ namespace Libre.Connect.Message {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Resources.ResourceManager ResourceManager {
+        public static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
                     System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Libre.Connect.Message.ResourceMessage", typeof(ResourceMessage).Assembly);
@@ -36,7 +36,7 @@ namespace Libre.Connect.Message {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Globalization.CultureInfo Culture {
+        public static System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -44,55 +44,55 @@ namespace Libre.Connect.Message {
                 resourceCulture = value;
             }
         }
-
+        
         public static string NameRequired {
             get {
                 return ResourceManager.GetString("NameRequired", resourceCulture);
             }
         }
         
-        internal static string EmailRequired {
+        public static string EmailRequired {
             get {
                 return ResourceManager.GetString("EmailRequired", resourceCulture);
             }
         }
         
-        internal static string BorrowedBook {
+        public static string BorrowedBook {
             get {
                 return ResourceManager.GetString("BorrowedBook", resourceCulture);
             }
         }
         
-        internal static string BookNotFound {
+        public static string BookNotFound {
             get {
                 return ResourceManager.GetString("BookNotFound", resourceCulture);
             }
         }
-
+        
         public static string AuthorNotFound {
             get {
                 return ResourceManager.GetString("AuthorNotFound", resourceCulture);
             }
         }
-
+        
         public static string AuthorRequired {
             get {
                 return ResourceManager.GetString("AuthorRequired", resourceCulture);
             }
         }
-
+        
         public static string PublisherRequired {
             get {
                 return ResourceManager.GetString("PublisherRequired", resourceCulture);
             }
         }
         
-        internal static string NameMinLength {
+        public static string NameMinLength {
             get {
                 return ResourceManager.GetString("NameMinLength", resourceCulture);
             }
         }
-
+        
         public static string NameMaxLength {
             get {
                 return ResourceManager.GetString("NameMaxLength", resourceCulture);

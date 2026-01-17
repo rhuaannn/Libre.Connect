@@ -45,6 +45,11 @@ public class GlobalMiddlewareExceptions
                 statusCode = HttpStatusCode.BadRequest;
                 message = exception.Message;
                 break;
+            
+            case ExceptionBadRequest:  
+                statusCode = HttpStatusCode.BadRequest;
+                message = exception.Message;
+                break;
         }
 
         context.Response.StatusCode = (int)statusCode;
