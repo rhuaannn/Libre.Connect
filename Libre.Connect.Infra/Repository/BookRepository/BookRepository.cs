@@ -24,18 +24,21 @@ public class BookRepository : IWriteOnlyBookRepository, IReadOnlyBookRepository
         throw new NotImplementedException();
     }
 
-    public Task DeleteAsync(Book book, CancellationToken cancellationToken = default)
+    public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var book = await _dbContext.Books.FindAsync(id);
+        _dbContext.Remove(book);
+        _dbContext.SaveChangesAsync(cancellationToken);
     }
 
-    public Task<Book?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+    public async Task<Book?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var book = await _dbContext.Books.FindAsync(id);
+        return book;
     }
 
-    public Task<IEnumerable<Book>> GetAllAsync(CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<Book>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Books.ToListAsync(cancellationToken);
     }
 }

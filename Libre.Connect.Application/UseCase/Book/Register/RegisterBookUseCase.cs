@@ -1,11 +1,8 @@
-using Libre.Connect.Domain.Entites;
 using Libre.Connect.Domain.Exception;
 using Libre.Connect.Domain.Repositories;
 using Libre.Connect.Domain.Repositories.Author;
-using Libre.Connect.Message;
-
+ 
 namespace Libre.Connect.Application.UseCase.CreateBook;
-
 public class RegisterBookUseCase
 {
     private readonly IWriteOnlyBookRepository _writeOnlyBookRepository;
@@ -27,7 +24,7 @@ public class RegisterBookUseCase
             throw new ExceptionNotFound("Author not found.");
         }
 
-        var book = Book.Create(request.Name, request.Publisher, request.DataLancamento, request.AuthorId);
+        var book = Domain.Entites.Book.Create(request.Name, request.Publisher, request.DataLancamento, request.AuthorId);
         await _writeOnlyBookRepository.AddAsync(book);
 
         return new RegisterBookUseCaseResponse

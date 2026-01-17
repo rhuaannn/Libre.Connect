@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="UseCase\Book\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Libre.Connect.Domain\Libre.Connect.Domain.csproj" />
       <ProjectReference Include="..\Libre.Connect.Message\Libre.Connect.Message.csproj" />
     </ItemGroup>

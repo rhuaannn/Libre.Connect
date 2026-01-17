@@ -10,7 +10,6 @@ public class GetAuthorUseCase
     {
         _readOnlyAuthorRepository = readOnlyAuthorRepository;
     }
-
     public async Task<IEnumerable<GetAuthorUseCaseResoponse>> Handle(CancellationToken cancellationToken)
     {
         var authors = await _readOnlyAuthorRepository.GetAllAsync(cancellationToken);
@@ -21,7 +20,6 @@ public class GetAuthorUseCase
                 Id = author.Id,
                 Name = author.Name
             });
-
         return response;
     }
 }

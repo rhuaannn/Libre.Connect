@@ -21,6 +21,7 @@ public sealed class Book : BaseEntity
     private Book(string name, string publisher, DateTime dataLancamento, Guid authorId)
     {
         Validate(name, publisher, authorId);
+        
         Name = name;
         Publisher = publisher;
         AuthorId = authorId;
@@ -28,11 +29,10 @@ public sealed class Book : BaseEntity
     }
     public static Book Create(string name, string publisher, DateTime dataLancamento, Guid authorId)
     {
-      
         return new Book(name, publisher, dataLancamento, authorId);
     }
     public void MarkAsBarrowed() => IsAvailable = false;
-
+    
     public void MarkAsReturn()
     {
         IsAvailable = true;
@@ -43,6 +43,6 @@ public sealed class Book : BaseEntity
     {
         if(string.IsNullOrEmpty(name)) throw new DomainException(ResourceMessage.NameRequired);
         if(string.IsNullOrEmpty(publisher)) throw new DomainException(ResourceMessage.PublisherRequired);
-        if (authorId ==  null || authorId == default) throw new DomainException(ResourceMessage.AuthorRequired);
+        if (authorId ==  Guid.Empty || authorId == default) throw new DomainException(ResourceMessage.AuthorRequired);
     }
 }
