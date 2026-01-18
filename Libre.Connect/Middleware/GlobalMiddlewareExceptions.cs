@@ -1,7 +1,6 @@
 using System.Net;
 using System.Text.Json;
 using Libre.Connect.Domain.Exception;
-using Libre.Connect.Message;
 using Libre.Connect.Model;
 
 namespace Libre.Connect.Middleware;

@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libre.Connect.Infra", "Libr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libre.Connect.Message", "Libre.Connect.Message\Libre.Connect.Message.csproj", "{691241DC-9410-4E3B-B5B9-F4C72BC1011B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libre.Connect.Redis", "Libre.Connect.Redis\Libre.Connect.Redis.csproj", "{3C02D948-1D9A-4B72-8823-7D3A04857CEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{691241DC-9410-4E3B-B5B9-F4C72BC1011B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{691241DC-9410-4E3B-B5B9-F4C72BC1011B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{691241DC-9410-4E3B-B5B9-F4C72BC1011B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C02D948-1D9A-4B72-8823-7D3A04857CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C02D948-1D9A-4B72-8823-7D3A04857CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C02D948-1D9A-4B72-8823-7D3A04857CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C02D948-1D9A-4B72-8823-7D3A04857CEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

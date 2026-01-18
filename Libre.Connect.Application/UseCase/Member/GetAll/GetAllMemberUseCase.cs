@@ -14,11 +14,8 @@ public class GetAllMemberUseCase
     
     public async Task<IEnumerable<GetAllMemberUseCaseResponse>> Handle(CancellationToken cancellationToken)
     {
-        var members = await _readOnlyMemberRepository.GetAllAsync();
-        if (members.Count() == 0)
-        {
-            throw new ExceptionNotFound("Members not found.");
-        }
+        var members =  await _readOnlyMemberRepository.GetAllAsync();
+        
         var response = members.Select(member =>
                 new GetAllMemberUseCaseResponse()
                 {

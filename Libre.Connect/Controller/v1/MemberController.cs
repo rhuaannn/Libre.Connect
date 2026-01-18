@@ -1,5 +1,6 @@
 using Libre.Connect.Application.UseCase.Member;
 using Libre.Connect.Application.UseCase.Member.GetAll;
+using Libre.Connect.Application.UseCase.Member.Update;
 using Libre.Connect.Domain.Entites;
 using Libre.Connect.Domain.Repositories.Member;
 using Libre.Connect.Model;
@@ -11,11 +12,13 @@ public class MemberController : BaseController
 {
     private readonly RegisterMemberUseCase _registerMemberUseCase;
     private readonly GetAllMemberUseCase _getAllMemberUseCase;
+    private readonly UpdateMemberUseCase _updateMemberUseCase;
 
-    public MemberController(RegisterMemberUseCase registerMemberUseCase, GetAllMemberUseCase getAllMemberUseCase)
+    public MemberController(RegisterMemberUseCase registerMemberUseCase, GetAllMemberUseCase getAllMemberUseCase, UpdateMemberUseCase updateMemberUseCase)
     {
         _registerMemberUseCase = registerMemberUseCase; 
         _getAllMemberUseCase = getAllMemberUseCase;
+        _updateMemberUseCase = updateMemberUseCase;
     }
     
     [HttpPost]
@@ -28,6 +31,7 @@ public class MemberController : BaseController
     }
 
     [HttpGet]
+    [ProducesResponseType(typeof(ApiResponse<GetAllMemberUseCaseResponse>), StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ApiResponse<GetAllMemberUseCaseResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse<GetAllMemberUseCaseResponse>), StatusCodes.Status404NotFound)]
 
@@ -36,5 +40,14 @@ public class MemberController : BaseController
         var response = await _getAllMemberUseCase.Handle(cancellationToken);
         return Ok(ApiResponse<IEnumerable<GetAllMemberUseCaseResponse>>.SuccessResponse(response));
     }
-    
+
+    [HttpPut("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Update(Guid id, UpdateMemberUseCaseInput input)
+    {
+        await _updateMemberUseCase.Handle(id, input);
+        return NoContent();
+    }
+
 }

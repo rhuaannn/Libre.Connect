@@ -6,6 +6,7 @@ using Libre.Connect.Application.UseCase.Book.Remove;
 using Libre.Connect.Application.UseCase.CreateBook;
 using Libre.Connect.Application.UseCase.Member;
 using Libre.Connect.Application.UseCase.Member.GetAll;
+using Libre.Connect.Application.UseCase.Member.Update;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Libre.Connect.Application.DI;
@@ -22,6 +23,8 @@ public static class DependencyInjenction
         services.AddScoped<RemoveAuthorUseCase>();
         services.AddScoped<RegisterMemberUseCase>();
         services.AddScoped<GetAllMemberUseCase>();
+        services.AddScoped<RegisterMemberUseCase>();
+        services.AddScoped<UpdateMemberUseCase>();
         
         return services;
     }

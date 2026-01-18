@@ -36,6 +36,7 @@ public class MemberRepository : IReadOnlyMemberRepository, IWriteOnlyMemberRepos
 
     public async Task UpdateAsync(Member member, CancellationToken cancellationToken = default)
     {
+         _dbContext.Members.Update(member);
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
 

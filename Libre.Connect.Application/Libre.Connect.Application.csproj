@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Libre.Connect.Domain\Libre.Connect.Domain.csproj" />
       <ProjectReference Include="..\Libre.Connect.Message\Libre.Connect.Message.csproj" />
+      <ProjectReference Include="..\Libre.Connect.Redis\Libre.Connect.Redis.csproj" />
     </ItemGroup>
 
     <ItemGroup>
