@@ -69,7 +69,7 @@ namespace Libre.Connect.Message {
             }
         }
         
-        public static string AuthorNotFound {
+        internal static string AuthorNotFound {
             get {
                 return ResourceManager.GetString("AuthorNotFound", resourceCulture);
             }
@@ -96,6 +96,24 @@ namespace Libre.Connect.Message {
         public static string NameMaxLength {
             get {
                 return ResourceManager.GetString("NameMaxLength", resourceCulture);
+            }
+        }
+
+        public static string BookRequired {
+            get {
+                return ResourceManager.GetString("BookRequired", resourceCulture);
+            }
+        }
+
+        public static string MemberRequired {
+            get {
+                return ResourceManager.GetString("MemberRequired", resourceCulture);
+            }
+        }
+
+        public static string TheReturnCannotBeInTheFuture {
+            get {
+                return ResourceManager.GetString("TheReturnCannotBeInTheFuture", resourceCulture);
             }
         }
     }

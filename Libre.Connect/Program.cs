@@ -1,4 +1,5 @@
 using Libre.Connect.Application.DI;
+using Libre.Connect.Filter;
 using Libre.Connect.Infra.DependencyInjection;
 using Libre.Connect.Middleware;
 using Libre.Connect.Redis.DI;
@@ -15,7 +16,10 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddControllers(); 
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(new TrimStringFilter.TrimStringsActionFilter());
+}); 
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfra(builder.Configuration);
 builder.Services.AddApplication();

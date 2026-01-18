@@ -12,7 +12,7 @@ public class LoanConfiguration : BaseConfiguration<Loan>
         
         builder.ToTable("Loans");
 
-        builder.Property(l => l.LoanDate)
+        builder.Property(l => l.DateLoan)
             .HasColumnName("loanDate")
             .HasColumnType("datetime2") 
             .IsRequired();

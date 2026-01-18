@@ -4,7 +4,7 @@ namespace Libre.Connect.Domain.Entites;
 
 public sealed class Loan : BaseEntity
 {
-    public DateTime LoanDate { get; private set; }
+    public DateTime DateLoan { get; private set; }
     public DateTime ExpectedReturnDate { get; private set; }
     public DateTime? ActualReturnDate { get; private set; }
     public Decimal Fees { get; private set; }
@@ -22,13 +22,26 @@ public sealed class Loan : BaseEntity
     {
         BookId = bookId;
         MemberId = memberId;
-        LoanDate = DateTime.UtcNow;
+        DateLoan = DateTime.UtcNow;
         ExpectedReturnDate = DateTime.UtcNow.AddDays(7);
         Fees = 0;
     }
+
     public static Loan Create(Guid bookId, Guid memberId)
     {
-        return new Loan(bookId, memberId);
+        return new Loan
+        {
+            Id = Guid.NewGuid(),
+            BookId = bookId,
+            MemberId = memberId,
+            DateLoan = DateTime.UtcNow,
+            ExpectedReturnDate = DateTime.UtcNow.AddDays(7)
+        };
+    }
+
+    public void UpdateExpectedReturnDate(DateTime expectedReturnDate)
+    {
+        ExpectedReturnDate = expectedReturnDate;
     }
     public void FinishLoan(decimal fees)
     {

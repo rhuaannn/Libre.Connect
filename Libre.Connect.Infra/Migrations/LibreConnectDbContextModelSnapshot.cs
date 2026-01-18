@@ -105,6 +105,10 @@ namespace Libre.Connect.Infra.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
+                    b.Property<DateTime>("DateLoan")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("loanDate");
+
                     b.Property<DateTime>("ExpectedReturnDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("expectedReturnDate");
@@ -114,10 +118,6 @@ namespace Libre.Connect.Infra.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasDefaultValue(0m)
                         .HasColumnName("fees");
-
-                    b.Property<DateTime>("LoanDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("loanDate");
 
                     b.Property<Guid>("MemberId")
                         .HasColumnType("uniqueidentifier");

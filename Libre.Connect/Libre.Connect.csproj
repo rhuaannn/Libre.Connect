@@ -28,8 +28,4 @@
       <ProjectReference Include="..\Libre.Connect.Redis\Libre.Connect.Redis.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="DependencyInjection\" />
-    </ItemGroup>
-
 </Project>

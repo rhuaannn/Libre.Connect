@@ -45,4 +45,13 @@
     <data name="NameMaxLength" xml:space="preserve">
         <value>The Name must be more than 255</value>
     </data>
+    <data name="BookRequired" xml:space="preserve">
+        <value>BookId required</value>
+    </data>
+    <data name="MemberRequired" xml:space="preserve">
+        <value>MemberId Required</value>
+    </data>
+    <data name="TheReturnCannotBeInTheFuture" xml:space="preserve">
+        <value>TheReturnCannotBeInTheFuture</value>
+    </data>
 </root>

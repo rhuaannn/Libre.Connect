@@ -1,8 +1,10 @@
 using Libre.Connect.Domain.Repositories;
 using Libre.Connect.Domain.Repositories.Author;
+using Libre.Connect.Domain.Repositories.Loan;
 using Libre.Connect.Domain.Repositories.Member;
 using Libre.Connect.Infra.Repository;
 using Libre.Connect.Infra.Repository.AuthorRepository;
+using Libre.Connect.Infra.Repository.LoanRepository;
 using Libre.Connect.Infra.Repository.MemberRepository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,8 @@ public static class DependencyInjection
         services.AddScoped<IWriteOnlyAuthorRepository, AuthorRepository>();
         services.AddScoped<IWriteOnlyMemberRepository, MemberRepository>();
         services.AddScoped<IReadOnlyMemberRepository, MemberRepository>();
+        services.AddScoped<IReadOnlyLoanRepository, LoanRepository>();
+        services.AddScoped<IWriteOnlyLoanRepository, LoanRepository>();
         return services;
     }
 
