@@ -22,10 +22,10 @@ public class LoanRepository : IReadOnlyLoanRepository, IWriteOnlyLoanRepository
         return await _dbContext.Loans.FindAsync(id);
     }
 
-    public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken = default)
+    public async Task<bool> IsBookCurrentlyLoanedAsync(Guid bookId, CancellationToken cancellationToken = default)
     {
-        var loan = await GetByIdAsync(id);
-        return loan != null;
+        return await _dbContext.Loans
+            .AnyAsync(l => l.BookId == bookId && l.ActualReturnDate == null, cancellationToken);
     }
 
     public async Task AddAsync(Loan loan)

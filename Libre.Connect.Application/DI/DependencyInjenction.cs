@@ -5,6 +5,7 @@ using Libre.Connect.Application.UseCase.Book.GetAll;
 using Libre.Connect.Application.UseCase.Book.Remove;
 using Libre.Connect.Application.UseCase.CreateBook;
 using Libre.Connect.Application.UseCase.Loan;
+using Libre.Connect.Application.UseCase.Loan.GetAll;
 using Libre.Connect.Application.UseCase.Member;
 using Libre.Connect.Application.UseCase.Member.GetAll;
 using Libre.Connect.Application.UseCase.Member.Update;
@@ -27,6 +28,7 @@ public static class DependencyInjenction
         services.AddScoped<RegisterMemberUseCase>();
         services.AddScoped<UpdateMemberUseCase>();
         services.AddScoped<RegisterLoanUseCase>();
+        services.AddScoped<GetAllLoanUseCase>();
         
         return services;
     }
