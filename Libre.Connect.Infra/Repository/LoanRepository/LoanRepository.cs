@@ -1,3 +1,4 @@
+using System.Xml.Linq;
 using Libre.Connect.Domain.Entites;
 using Libre.Connect.Domain.Repositories.Loan;
 using Microsoft.EntityFrameworkCore;
@@ -40,8 +41,10 @@ public class LoanRepository : IReadOnlyLoanRepository, IWriteOnlyLoanRepository
         return _dbContext.SaveChangesAsync(cancellationToken);
     }
 
-    public Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+    public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var loan = await GetByIdAsync(id, cancellationToken);
+        _dbContext.Remove(loan);
+        _dbContext.SaveChangesAsync(cancellationToken);
     }
 }

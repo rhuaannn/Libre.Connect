@@ -1,5 +1,6 @@
 using System.Net;
 using System.Text.Json;
+using FluentValidation;
 using Libre.Connect.Domain.Exception;
 using Libre.Connect.Model;
 
@@ -48,6 +49,11 @@ public class GlobalMiddlewareExceptions
             case ExceptionBadRequest:  
                 statusCode = HttpStatusCode.BadRequest;
                 message = exception.Message;
+                break;
+            
+            case ValidationException validationException:
+                statusCode = HttpStatusCode.BadRequest;
+                message = validationException.Errors.First().ErrorMessage;
                 break;
         }
 
